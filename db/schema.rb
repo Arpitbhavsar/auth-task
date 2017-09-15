@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914140357) do
+ActiveRecord::Schema.define(version: 20170915132410) do
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "position_id"
+    t.string   "position_title"
+    t.string   "position_summary"
+    t.string   "position_start_date"
+    t.string   "position_end_date"
+    t.string   "position_is_current"
+    t.string   "position_company"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_positions_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +36,10 @@ ActiveRecord::Schema.define(version: 20170914140357) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "headline"
+    t.string   "location"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

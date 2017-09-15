@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position_id: MyString
+  position_title: MyString
+  position_summary: MyString
+  position_start_date: MyString
+  position_end_date: MyString
+  position_is_current: MyString
+  position_company: MyString
+
+two:
+  position_id: MyString
+  position_title: MyString
+  position_summary: MyString
+  position_start_date: MyString
+  position_end_date: MyString
+  position_is_current: MyString
+  position_company: MyString
