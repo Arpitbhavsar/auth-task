@@ -23,6 +23,7 @@
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><a href="/users/auth/linkedin">Sign In with Linked In</a></li>
+              <li><a href="/users/auth/facebook">Sign In with facebook</a></li>
             <% end %>
           </ul>
         </li>

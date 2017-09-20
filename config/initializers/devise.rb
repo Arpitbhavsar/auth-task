@@ -275,4 +275,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :linkedin, "77qgpcp48jjb22", "ryZnPS5rIRo3ReJW", callback_url: "http://localhost:3000/users/auth/linkedin/callback", :scope => 'r_basicprofile r_emailaddress', :fields => ["id", "email-address", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url", "location", "connections", "positions", "summary", "specialties", "site-standard-profile-request", "api-standard-profile-request", "maiden-name", "languages", "educations"]
+
+  config.omniauth :facebook, "604424669946251", "4848b7166a2d373d67e928c87bf3935c", callback_url: "http://localhost:3000/users/auth/facebook/callback", :scope => "email"
 end
