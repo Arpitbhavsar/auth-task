@@ -277,4 +277,7 @@ Devise.setup do |config|
   config.omniauth :linkedin, "77qgpcp48jjb22", "ryZnPS5rIRo3ReJW", callback_url: "http://localhost:3000/users/auth/linkedin/callback", :scope => 'r_basicprofile r_emailaddress', :fields => ["id", "email-address", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url", "location", "connections", "positions", "summary", "specialties", "site-standard-profile-request", "api-standard-profile-request", "maiden-name", "languages", "educations"]
 
   config.omniauth :facebook, "604424669946251", "4848b7166a2d373d67e928c87bf3935c", callback_url: "http://localhost:3000/users/auth/facebook/callback", :scope => "email"
+
+
+  config.omniauth :google_oauth2, "759434225907-04hcojlsihss5mjlk2eu1tqiur7e2gjo.apps.googleusercontent.com", "KAkmWYyBROl8g8hPu14AjY6R", callback_url: "http://localhost:3000/users/auth/google_oauth2/callback"
 end

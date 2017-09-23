@@ -18,12 +18,14 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if user_signed_in? %>
-              <li><img src="<%= current_user.profile.profile_picture %>" class="imf-responsive"></li>
-              <li><%= link_to current_user.profile.name, "" %></li>
+              <li><img src="<%#= current_user.profile.profile_picture %>" class="imf-responsive"></li>
+              <li><%#= link_to current_user.profile.name, "" %></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><a href="/users/auth/linkedin">Sign In with Linked In</a></li>
               <li><a href="/users/auth/facebook">Sign In with facebook</a></li>
+              <li><a href="/users/auth/google_oauth2">Sign In with google</a></li>
+                 
             <% end %>
           </ul>
         </li>

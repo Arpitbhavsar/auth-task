@@ -57,6 +57,8 @@ gem 'omniauth-linkedin'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 group :development, :test do 
   gem 'sqlite3'

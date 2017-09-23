@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:linkedin]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:linkedin, :facebook, :google_oauth2]
 
   has_one :profile
   has_many :positions
@@ -26,13 +26,20 @@ class User < ApplicationRecord
         # User Postions build
         auth['extra']['raw_info']['positions']['values'].each do |a|
           user.positions.create(position_title: a.try(:title), position_is_current: a.try(:isCurrent), position_company: a.try(:company).try(:name), position_start_date: "#{a.try(:startDate).try(:month)}/#{a.try(:startDate).try(:year)}")
-        end
+        end if auth.provider == "linkedin"
         # Profile Build for User
         location = auth.info.location
-        profile = Profile.new(:name => auth.info.name, :occupation => auth.info.industry, :profile_picture =>  auth.info.image, :country => location[location.length-2..location.length-1], :user_id => user.id, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :headline => auth.info.headline, :location => auth.info.location)
-        profile.save
+
+        if auth.provider == "linkedin"
+          profile = Profile.new(:name => auth.info.name, :occupation => auth.info.industry, :profile_picture =>  auth.info.image, :country => location[location.length-2..location.length-1], :user_id => user.id, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :headline => auth.info.headline, :location => auth.info.location)
+          profile.save
+        elsif auth.provider == "facebook"
+          
+        elsif auth.provider == "google_oauth2"
+           
+        end
       end
-      user
+     
     end
   end
 end

@@ -1,6 +1,11 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  # def callback
+    # do your authentication stuff here...
+    # redirect_to request.env['omniauth.origin'] || '/default'
+  # end
+
   # GET /resource/sign_in
   # def new
   #   super
